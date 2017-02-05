@@ -2,7 +2,7 @@
   <div each={bebida, i in bebidas}>
     <input
       type="radio"
-      name={'bebida' + id}
+      name={'bebida' + index}
       value={bebida}> {bebida}
   </div>
 

@@ -7,7 +7,7 @@
     <div each={salsa, i in salsas}>
       <input
         type="checkbox"
-        name={'salsa' + id}
+        name={'salsa' + index}
         value={salsa}> {salsa}
     </div>
   </div>

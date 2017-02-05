@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>riot example</title>
+  <title>FastFood Example</title>
 
 </head>
 <body>
 
-  <hello-world />
+  <orden></orden>
 
-  <script src="hello-world.tag" type="riot/tag"></script>
+  <script src="orden.tag" type="riot/tag"></script>
+  <script src="bebidas.tag" type="riot/tag"></script>
+  <script src="panchos.tag" type="riot/tag"></script>
   <script src="https://cdn.jsdelivr.net/riot/3.1/riot+compiler.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
   <script>
-    riot.mount('hello-world')
+    // base de dato de un millon de dolares.
+    var bebidas = ['Cola', 'Limon', 'Cerveza']
+    var salsas = ['chedar', 'tomate']
+
+    var items = [
+      { title: 'Pancho', precio: 5, articulos: ['pancho'] },
+      { title: 'bebida', precio: 9, articulos: ['bebidas'] },
+      { title: 'Combo1', precio: 12, articulos: ['pancho', 'bebidas'] }
+    ]
+    //
+    riot.mount('pancho')
+    riot.mount('bebidas')
+    riot.mount('orden', {
+      title: 'Orden',
+      bebidas: bebidas,
+      salsas: salsas,
+      cart: [],
+      items: items
+    })
   </script>
 </body>
 </html>

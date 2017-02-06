@@ -9,16 +9,23 @@
       bebidas={bebidas}
       salsas={salsas}>
     </seleccion>
-    <button onclick={siguiente}>Siguiente</button>
+    <button onclick={goto('formulario')}>Siguiente</button>
   </div>
 
-  <div show={state !== 'seleccion'}>
-    <formulario show={state !== 'seleccion'}
+  <div show={state === 'formulario'}>
+    <formulario show={state === 'formulario'}
       cart={cart}
       bebidas={bebidas}
       salsas={salsas}>
     </formulario>
-    <button onclick={atras}>Atras</button>
+    <button onclick={goto('seleccion')}>Atras</button>
+    <button onclick={goto('vuelto')}>Siguiente</button>
+  </div>
+
+  <div show={state === 'vuelto'}>
+    <vuelto></vuelto>
+    <button onclick={goto('formulario')}>Atras</button>
+    <button onclick={imprimir}>Siguiente</button>
   </div>
 
   <script>
@@ -29,14 +36,15 @@
 
     this.state = 'seleccion'
 
-    siguiente(){
-      this.state = 'formulario'
+    goto(state){
+      return function(e){
+        this.state = state
+      }
     }
 
-    atras(){
-      this.state = 'seleccion'
+    imprimir(){
+      window.print()
     }
-
   </script>
 
 </orden>

@@ -47,7 +47,8 @@
         var index = _.findIndex(this.items, function(el){
 	  return el.title == title
 	})
-        this.cart.push(this.items[index])
+        var item = this.items[index]
+        this.cart.push(item)
       }
     }
 

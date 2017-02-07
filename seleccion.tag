@@ -1,21 +1,32 @@
 <seleccion>
-  <ul>
-    <li each={ items }>
-      <button onclick={add(title)}>{title}</button>
-    </li>
-  </ul>
+  <style>
+    button.menu{
+      padding: 20px;
+    }
+  </style>
 
-  <div>
-    total: <strong>{total()}</strong>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-2" each={ items }>
+          <button class="menu" onclick={add(title)}>{title}</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        total: <strong>{total()}</strong>
+      </div>
+
+      <ul class="list-group">
+        <li each={groupedList()} class="list-group-item">
+          <span class="badge">{qty}</span>
+          {title}
+          <button onclick={remove(title)}>-</button>
+
+          <button onclick={add(title)}>+</button>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <ul>
-    <li each={groupedList()}>
-      <strong>{qty}</strong><span>{title}</span>
-      <button onclick={add(title)}>+</button>
-      <button onclick={remove(title)}>-</button>
-    </li>
-  </ul>
 
   <script>
     this.items = opts.items

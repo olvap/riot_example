@@ -1,4 +1,8 @@
 <bebidas>
+  <style>
+  
+
+  </style>
   <div each={bebida, i in bebidas}>
     <input
       type="radio"
